@@ -1,0 +1,8 @@
+services:
+  filebrowser:
+    image: filebrowser/filebrowser
+    restart: unless-stopped
+    ports:
+      - 8090:80
+    volumes:
+      - /home/pi:/srv
