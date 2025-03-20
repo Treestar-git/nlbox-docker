@@ -1,7 +1,7 @@
 services:
  
   vdu:
-    image: treestarhub/nlbox:vdu-1.0.0.4
+    image: treestarhub/nlbox:vdu-1.0.0.7
     container_name: vdu
     restart: unless-stopped
     volumes:
@@ -14,7 +14,7 @@ services:
       - TZ=Europe/Budapest
  
   pis:
-    image: treestarhub/nlbox:pis-1.0.3.0
+    image: treestarhub/nlbox:pis-1.0.5.0
     container_name: pis
     restart: unless-stopped 
     volumes:
