@@ -27,7 +27,7 @@ services:
       - TZ=Europe/Budapest
  
   ddu:
-    image: treestarhub/nlbox:ddu-1.01.01-dev
+    image: treestarhub/nlbox:ddu-1.0.1.1
     container_name: ddu
     restart: unless-stopped
     networks:
