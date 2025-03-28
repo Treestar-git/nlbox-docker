@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - /srv/vdu/config:/app/config
-      - /srv/vdu/logs:/app/logs
+      - /srv/vdu/logs:/app/Logs
     networks:
       - maestro_network
     environment:
@@ -19,7 +19,7 @@ services:
     restart: unless-stopped 
     volumes:
       - /srv/pis/config:/app/config
-      - /srv/pis/logs:/app/logs
+      - /srv/pis/logs:/app/Logs
     networks:
       - maestro_network
     environment:
@@ -27,7 +27,7 @@ services:
       - TZ=Europe/Budapest
  
   ddu:
-    image: treestarhub/nlbox:ddu-1.0.1.10
+    image: treestarhub/nlbox:ddu-1.0.1.11
     container_name: ddu
     restart: unless-stopped
     networks:
