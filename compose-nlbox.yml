@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - /srv/vdu/config:/app/config
-      - /srv/vdu/logs:/app/Logs
+      - /srv/vdu/logs:/app/logs
     networks:
       - maestro_network
     environment:
@@ -14,12 +14,12 @@ services:
       - TZ=Europe/Budapest
  
   pis:
-    image: treestarhub/nlbox:pis-1.0.9.0
+    image: treestarhub/nlbox:pis-1.0.9.1
     container_name: pis
     restart: unless-stopped 
     volumes:
       - /srv/pis/config:/app/config
-      - /srv/pis/logs:/app/Logs
+      - /srv/pis/logs:/app/logs
     networks:
       - maestro_network
     environment:
