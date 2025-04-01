@@ -14,7 +14,7 @@ services:
       - TZ=Europe/Budapest
  
   pis:
-    image: treestarhub/nlbox:pis-1.0.9.1
+    image: treestarhub/nlbox:pis-1.0.9.2
     container_name: pis
     restart: unless-stopped 
     volumes:
