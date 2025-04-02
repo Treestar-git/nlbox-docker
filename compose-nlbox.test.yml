@@ -1,0 +1,46 @@
+services:
+ 
+  vdu:
+    image: treestarhub/nlbox:vdu
+    container_name: vdu
+    restart: unless-stopped
+    volumes:
+      - /srv/vdu/config:/app/config
+      - /srv/vdu/logs:/app/logs
+    networks:
+      - maestro_network
+    environment:
+      - DOTNET_ENVIRONMENT=Production
+      - TZ=Europe/Budapest
+ 
+  pis:
+    image: treestarhub/nlbox:pis-1.0.9.2
+    container_name: pis
+    restart: unless-stopped 
+    volumes:
+      - /srv/pis/config:/app/config
+      - /srv/pis/logs:/app/logs
+    networks:
+      - maestro_network
+    environment:
+      - DOTNET_ENVIRONMENT=Production
+      - TZ=Europe/Budapest
+ 
+  ddu:
+    image: treestarhub/nlbox:ddu-1.0.1.13
+    container_name: ddu
+    restart: unless-stopped
+    networks:
+      - maestro_network
+    volumes:
+      - /srv/ddu/logs:/app/Logs      # 🔹 Raspberry Pi mappáját csatolja a konténerbe
+      - /srv/ddu/configs:/app/Configs  # 🔹 Configs mappa is a Raspberry-n lesz
+    environment:
+      - DOTNET_ENVIRONMENT=Production
+      - TZ=Europe/Budapest
+
+    
+
+networks:
+  maestro_network:
+    external: true
