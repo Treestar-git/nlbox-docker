@@ -19,7 +19,7 @@ services:
     restart: unless-stopped 
     volumes:
       - /srv/pis/config:/app/config
-      - /srv/pis/logs:/app/logs
+      - /srv/pis/logs:/app/Logs
     networks:
       - maestro_network
     environment:
