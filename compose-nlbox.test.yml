@@ -5,7 +5,7 @@ services:
     container_name: vdu
     restart: unless-stopped
     volumes:
-      - /srv/vdu/config:/app/config
+      - /srv/vdu/config:/app/Config
       - /srv/vdu/logs:/app/logs
     networks:
       - maestro_network
