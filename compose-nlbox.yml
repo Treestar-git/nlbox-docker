@@ -1,11 +1,11 @@
 services:
  
   vdu:
-    image: treestarhub/nlbox:vdu
+    image: treestarhub/nlbox:vdu-1.0.1.11
     container_name: vdu
     restart: unless-stopped
     volumes:
-      - /srv/vdu/config:/app/config
+      - /srv/vdu/config:/app/Config
       - /srv/vdu/logs:/app/logs
     networks:
       - maestro_network
@@ -14,7 +14,7 @@ services:
       - TZ=Europe/Budapest
  
   pis:
-    image: treestarhub/nlbox:pis-1.0.9.2
+    image: treestarhub/nlbox:pis-1.0.9.6
     container_name: pis
     restart: unless-stopped 
     volumes:
@@ -27,7 +27,7 @@ services:
       - TZ=Europe/Budapest
  
   ddu:
-    image: treestarhub/nlbox:ddu-1.0.1.13
+    image: treestarhub/nlbox:ddu-1.0.1.16-test
     container_name: ddu
     restart: unless-stopped
     networks:
