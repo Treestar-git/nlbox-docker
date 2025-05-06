@@ -38,7 +38,6 @@ services:
       - /srv/ddu/logs:/app/Logs      # 🔹 Raspberry Pi mappáját csatolja a konténerbe
       - /srv/ddu/configs:/app/Configs  # 🔹 Configs mappa is a Raspberry-n lesz
     environment:
-      - DOTNET_ENVIRONMENT=Production
       - TZ=Europe/Budapest
 
     
