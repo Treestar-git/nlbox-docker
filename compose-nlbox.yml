@@ -40,17 +40,6 @@ services:
     environment:
       - TZ=Europe/Budapest
 
-   mng:
-    image: treestarhub/nlbox:mng-1.0.1.0
-    container_name: mng
-    restart: unless-stopped
-    networks:
-      - maestro_network
-    volumes:
-      - /srv/mng/logs:/app/Logs      # 🔹 Raspberry Pi mappáját csatolja a konténerbe
-      - /srv/mng/configs:/app/Configs  # 🔹 Configs mappa is a Raspberry-n lesz
-    environment:
-      - TZ=Europe/Budapest 
 
 networks:
   maestro_network:
