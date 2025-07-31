@@ -3,7 +3,7 @@
 services:
  
   vdu:
-    image: treestarhub/nlbox:vdu-1.2.0.0
+    image: treestarhub/nlbox:vdu-1.1.0.0
     container_name: vdu
     restart: unless-stopped
     volumes:
