@@ -22,6 +22,8 @@ services:
     volumes:
       - /srv/pis/config:/app/config
       - /srv/pis/logs:/app/logs
+    ports:
+      - 5001:5000
     networks:
       - maestro_network
     environment:
