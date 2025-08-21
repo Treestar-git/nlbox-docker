@@ -30,13 +30,35 @@ scrape_configs:
 
   - job_name: "Node Exporter"
     static_configs:
-      - targets: ['rpi-exporter:9100']
-  
-  - job_name: "RabbitMQ"
-    static_configs:	
-      - targets: ['172.20.0.88:15692']
+      - targets: ['monitoring-node-exporter:9100']
 
-  - job_name: "Docker"
+  - job_name: "PIS Worker"
     static_configs:
-      - targets: ['host.docker.internal:9323']
+      - targets: ['pis:5000']
+
+  - job_name: "VDU Worker"
+    static_configs:
+      - targets: ['vdu:5000']
+
+  - job_name: "DDU Worker"
+    static_configs:
+      - targets: ['ddu:5000']
+  - job_name: "rabbitmq"
+    static_configs:
+      - targets: ["rabbitmq:15692"]
+  - job_name: 'waveshare'
+    metrics_path: /probe
+    params:
+      module: [tcp_connect]    # lehet: icmp, tcp_connect vagy http_2xx
+    static_configs:
+      - targets:
+          - 192.168.1.119  # <-- ide a Waveshare IP
+          - 192.168.1.204  # <-- ide a Waveshare IP (ha több van)
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115   # <-- itt a Blackbox Exporter címe
 
