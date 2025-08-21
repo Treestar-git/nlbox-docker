@@ -70,6 +70,12 @@ services:
       - "9115:9115"
     networks:
       - maestro_network
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
 
 networks:
   maestro_network:
