@@ -63,6 +63,14 @@ services:
     depends_on:
       - prometheus
 
+    blackbox-exporter:
+    image: prom/blackbox-exporter
+    container_name: blackbox-exporter
+    ports:
+      - "9115:9115"
+    networks:
+      - maestro_network
+
 networks:
   maestro_network:
     external: true
