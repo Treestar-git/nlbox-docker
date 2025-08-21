@@ -63,7 +63,7 @@ services:
     depends_on:
       - prometheus
 
-    blackbox-exporter:
+  blackbox-exporter:
     image: prom/blackbox-exporter
     container_name: blackbox-exporter
     ports:
