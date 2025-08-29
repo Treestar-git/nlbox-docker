@@ -11,7 +11,7 @@ services:
     networks:
       - maestro_network
     expose:
-      - 9100
+      - 9100:9100
     command:
       - --path.procfs=/host/proc
       - --path.sysfs=/host/sys
