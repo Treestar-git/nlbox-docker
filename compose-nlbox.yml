@@ -40,24 +40,6 @@ services:
     environment:
       - TZ=Europe/Budapest
 
-   mng:
-    image: treestarhub/nlbox:mng-1.3.0.0
-    container_name: mng
-    restart: unless-stopped
-    volumes:
-      - /srv/mng/config/appsettings.json:/app/appsettings.json
-      - /srv/mng/logs:/app/logs
-    ports:
-      - 7178:7178
-      - 9999:8881
-      - 9998:8080
-      - 5110:5110
-    networks:
-      - maestro_network
-    environment:
-      - DOTNET_ENVIRONMENT=Production
-      - TZ=Europe/Budapest
-
 networks:
   maestro_network:
     external: true
